@@ -39,7 +39,7 @@ if (isset($_POST['caculator'])){
         <table>
             <tr>
                 <td>First Operand</td>
-                <td><input type="text" name="first"></td>
+                <td><input type="text" name="first" placeholder="0"></td>
             </tr>
             <tr>
                 <td>Operator</td>
@@ -52,7 +52,7 @@ if (isset($_POST['caculator'])){
             </tr>
             <tr>
                 <td>Second Operand</td>
-                <td><input type="text" name="second"></td>
+                <td><input type="text" name="second" placeholder="0"></td>
             </tr>
             <tr>
                 <td></td>
