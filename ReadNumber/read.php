@@ -6,7 +6,7 @@
 <body>
 <h3>Nhập số muốn chuyển vào ô</h3>
 <form method="get">
-<input type="text" id="isNumber" placeholder="0" <?php echo '$number'; ?>/>
+<input type="text" id="isNumber" placeholder="0" value="<?php echo '$number'; ?>"/>
     <input type="submit" value="Change">
 </form>
 <?php
