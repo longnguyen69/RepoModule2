@@ -12,37 +12,50 @@
 
 function sum($numberOne, $numberTwo)
 {
-    if ($numberOne / 2 + $numberTwo / 2 >= PHP_INT_MAX / 2) {
-        throw new Exception("so nhap vao qua lon");
+    try {
+        if ($numberOne / 2 + $numberTwo / 2 >= PHP_INT_MAX / 2) {
+            throw new Exception("so nhap vao qua lon");
+        }
+        return $numberTwo + $numberOne;
     }
-    return $numberTwo + $numberOne;
+    catch (Exception $e){
+        return $e->getMessage();
+    }
+
 }
 
 function minus($numberOne, $numberTwo)
 {
+    try{
     if ($numberOne / 2 + $numberTwo / 2 >= PHP_INT_MAX / 2) {
         throw new Exception("so nhap vao qua lon");
     }
     return $numberOne - $numberTwo;
+} catch (Exception $e){
+        return $e->getMessage();
+    }
 }
-
 function multiply($numberOne, $numberTwo)
 {
-    if ($numberOne / 2 + $numberTwo / 2 >= PHP_INT_MAX / 2) {
-        throw new Exception("so nhap vao qua lon");
+    try {
+        if ($numberOne / 2 + $numberTwo / 2 >= PHP_INT_MAX / 2) {
+            throw new Exception("so nhap vao qua lon");
+        }
+        return $numberTwo * $numberOne;
+    } catch (Exception $e) {
+        return $e->getMessage();
     }
-    return $numberTwo * $numberOne;
 }
 
 function divide($numberOne, $numberTwo)
 {
-    try{
-        if ($numberTwo == 0){
+    try {
+        if ($numberTwo == 0) {
             throw new Exception('Division by zero');
         }
         return $numberOne / $numberTwo;
-    } catch (Exception $e){
-        return $e ->getMessage();
+    } catch (Exception $e) {
+        return $e->getMessage();
     }
 
 }
