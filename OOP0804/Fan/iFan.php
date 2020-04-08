@@ -36,10 +36,12 @@ class iFan
         return $this->color;
     }
 
-    public function status(){
-        if (!$this->on){
-            return $this->speed . $this .$this->color . $this->radius . 'fan in on';
-        } else
-            return $this->color . $this->radius . 'fan is off';
+    public function toString(){
+        if ($this->getOn()){
+            return $this->getColor() .' ' .  $this->getRadius() . ' ' . 'fan is off';
+
+        } else{
+            return $this->getSpeed(). '' . $this .$this->getColor(). ' ' . $this->getRadius() . ' ' .'fan in on';
+        }
     }
 }
