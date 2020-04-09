@@ -1,8 +1,28 @@
 <?php
-include "class/Student.php";
-include "class/StudentManager.php";
+include "class/Students.php";
+include "class/Manager.php";
 
-$studentManager = new StudentManager("data/data.json");
-$students = $studentManager->getStudents();
+$Manager = new Manager("data/data.json");
+$students = $Manager->updateStudents();
 var_dump($students);
 ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>age</td>
+        <td>address</td>
+    </tr>
+    <?php foreach ($students as $key => $value) ?>
+</table>
+</body>
+</html>

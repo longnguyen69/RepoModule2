@@ -1,7 +1,8 @@
 <?php
-include 'QuadraticEquation.php';
 
 if (isset($_POST['count'])){
+    include 'QuadraticEquation.php';
+
     $a = $_POST['numberA'];
     $b = $_POST['numberB'];
     $c = $_POST['numberC'];

@@ -1,7 +1,7 @@
 <?php
-define('SLOW',1);
-define('MEDIUM',2);
-define('FAST',3);
+define('SLOW', 1);
+define('MEDIUM', 2);
+define('FAST', 3);
 
 class iFan
 {
@@ -11,37 +11,53 @@ class iFan
     private $radius = 5;
     private $color = blue;
 
-    public function setSpeed($speed){
+    public function setSpeed($speed)
+    {
         $this->speed = $speed;
     }
-    public function getSpeed(){
-         return $this->speed;
+
+    public function getSpeed()
+    {
+        return $this->speed;
     }
-    public function setOn($on){
+
+    public function setOn($on)
+    {
         $this->on = $on;
     }
-    public function getOn(){
+
+    public function getOn()
+    {
         return $this->on;
     }
-    public function setRadius($radius){
+
+    public function setRadius($radius)
+    {
         $this->radius = $radius;
     }
-    public function getRadius(){
+
+    public function getRadius()
+    {
         return $this->radius;
     }
-    public function setColor($color){
+
+    public function setColor($color)
+    {
         $this->color = $color;
     }
-    public function getColor(){
+
+    public function getColor()
+    {
         return $this->color;
     }
 
-    public function toString(){
-        if ($this->getOn()){
-            return $this->getColor() .' ' .  $this->getRadius() . ' ' . 'fan is off';
+    public function toString()
+    {
+        if ($this->getOn()) {
+            return $this->getColor() . ' ' . $this->getRadius() . ' ' . 'fan is off';
 
-        } else{
-            return $this->getSpeed(). '' . $this .$this->getColor(). ' ' . $this->getRadius() . ' ' .'fan in on';
+        } else {
+            return $this->getSpeed() . '' . $this->getColor() . ' ' . $this->getRadius() . ' ' . 'fan in on';
         }
     }
 }

@@ -9,13 +9,13 @@
 </head>
 <body>
 <form action="../action/store.php" method="POST">
-    name:
+    Name:
     <input type="text" name="name">
-    email:
-    <input type="text" name="email">
-    phone:
-    <input type="text" name="phone">
-    <button type="submit">Tao moi</button>
+    Age:
+    <input type="text" name="age">
+    Address:
+    <input type="text" name="address">
+    <button type="submit">ADD STUDENT</button>
 </form>
 </body>
 </html>
