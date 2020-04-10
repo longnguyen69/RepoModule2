@@ -1,15 +1,15 @@
 <?php
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        include '../class_lib/Human.php';
+        include '../class_lib/HumanManager.php'; // them hai lop quan ly thong tin nhap vao
 
-</body>
-</html>
+        $name = $_POST['name'];
+        $age = $_POST['age'];
+        $address = $_POST['address'];
+
+        $human = new Human($name, $age, $address); // lay thong tin về đối tượng human nhập vào
+        $linkJsonSave = new HumanManager('../DataJson/data.json'); // tao nơi lưu trữ data nhap
+        $linkJsonSave->addHuman($human); // gọi phương thức thêm và truyền vào thông tin đối tượng nhập
+        header("Location: ../index.php");
+
+    }
