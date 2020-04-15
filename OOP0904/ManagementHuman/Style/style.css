@@ -2,6 +2,6 @@ table{
     border: 1px solid chartreuse;
     border-collapse: collapse;
 }
-tr,td{
+th,tr,td{
     border: 1px solid chartreuse;
 }

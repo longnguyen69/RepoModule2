@@ -16,7 +16,9 @@ class HumanManager
         $data = [ // tao mang data khi ng dung nhap vao form tu doi tuong human
             'name' => $human->getName(),
             'age' => $human->getAge(),
-            'address' => $human->getAddress()
+            'group' => $human->getGroup(),
+            'address' => $human->getAddress(),
+            'image' => $human->getImage()
         ];
         $humanData = $this->getJsonData(); // tạo mảng hứng dâta json sau khi chuyển
         array_push($humanData, $data); // chuyển data vào mang json
@@ -27,8 +29,8 @@ class HumanManager
     public function listHuman()
     { // tạo ra list human từ json
         $humanJson = $this->getJsonData(); // hứng data json
-        foreach ($humanJson as $obj) { // duyệt từng phần từ mảng trên vào list
-            $human = new Human($obj->name, $obj->age, $obj->address);
+        foreach ($humanJson as $obj) {
+            $human = new Human($obj->name, $obj->age, $obj->group, $obj->address, $obj->image);
             array_push($this->listHuman, $human);
         }
         return $this->listHuman;
@@ -50,16 +52,18 @@ class HumanManager
     {
         $data = $this->getJsonData(); //lấy json vào chuyển thành m
         $obj = $data[$index];         // phần tử thứ index
-        return new Human($obj->name, $obj->age, $obj->address);
+        return new Human($obj->name, $obj->age, $obj->group, $obj->address, $obj->image);
     }
 
     public function updateHuman($index, $human)
-    { //truyen vao vi tri va data doi tuong
+    { //truyen vao vi tri index va data doi tuong
         $data = $this->getJsonData();            // chuyeenr json thanh mang
         $arr = [                                    // data mới lấy từ data có index ra để chỉnh s
             'name' => $human->getName(),
             'age' => $human->getAge(),
-            'address' => $human->getAddress()
+            'group' => $human->getGroup(),
+            'address' => $human->getAddress(),
+            'image' => $human->getImage()
         ];
         $data[$index] = $arr;
         $this->saveJsonData($data);
@@ -68,28 +72,30 @@ class HumanManager
     public function deleteHuman($index)
     {
         $data = $this->getJsonData(); // chuyen json thanh mang
-        //unset($data[$index]);
+        unlink("../Upload/" . $data[$index]->image);
         array_splice($data, $index, 1); // xoa 1 phan tu index
         $this->saveJsonData($data); // encode lai ve json
     }
 
     public function searchHuman($keyWord)
     {
-        $dataJson = $this->getJsonData();
-        $arr = [];
-        foreach ($dataJson as $obj) {
-            if (strrpos($obj->name, $keyWord) !== false) {
-                array_push($arr, $obj);
+        $data = $this->listHuman();
+        foreach ($data as $obj => $value) {
+            //if (strrpos($obj->name, $keyWord) !== false) {
+            //array_push($arr, $obj);
+            //}
+
+            if ($value->name == $keyWord) {
+                return $this->listHuman[$this->getIndex($keyWord)];
             }
         }
-        return $arr;
-
     }
 
-    public function getIndex($keyWord){
-        $dataJson = $this->getJsonData();
-        foreach ($dataJson as $key) {
-            if ($key->name == $keyWord) {
+    public function getIndex($keyWord)
+    {
+        $data = $this->listHuman();
+        foreach ($data as $key => $value) {
+            if ($value->name == $keyWord) {
                 return $key;
             }
         }

@@ -3,10 +3,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     include '../class_lib/HumanManager.php';
 
     $keyWord = $_GET['txtSearch'];
-
-    $managerHuman = new HumanManager('../DataJson/data.json');
+    $managerHuman = new HumanManager('../DataJson/dataHuman.json');
     $searchHumans = $managerHuman->searchHuman($keyWord);
-    //$keyObj = $managerHuman->getIndex($keyWord);
 }
 ?>
 <!doctype html>
@@ -17,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" stype="text/css" href="../style/style.css"/>
+    <link rel="stylesheet" stype="text/css" href="../Style/style.css"/>
 </head>
 <body>
 <table>
