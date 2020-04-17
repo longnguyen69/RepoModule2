@@ -81,10 +81,6 @@ class HumanManager
     {
         $data = $this->listHuman();
         foreach ($data as $obj => $value) {
-            //if (strrpos($obj->name, $keyWord) !== false) {
-            //array_push($arr, $obj);
-            //}
-
             if ($value->name == $keyWord) {
                 return $this->listHuman[$this->getIndex($keyWord)];
             }

@@ -3,16 +3,36 @@ include 'Point.php';
 
 class MoveablePoint extends Point
 {
-    public $xSpeed;
-    public $ySpeed;
+    public $xSpeed = 1;
+    public $ySpeed = 1;
 
-    public function setX($xSpeed)
+    public function setXSpeed($xSpeed)
     {
-        $this->x = $xSpeed;
+        $this->xSpeed = $xSpeed;
     }
 
-    public function setY($ySpeed)
+    public function getXSpeed()
     {
-        $this->y = $ySpeed;
+        return $this->xSpeed;
+    }
+
+    public function setYSpeed($ySpeed)
+    {
+        $this->ySpeed = $ySpeed;
+    }
+
+    public function getYSpeed()
+    {
+        return $this->ySpeed;
+    }
+    public function moveSpeed($xSpeed, $ySpeed){
+        $this->x += $this->xSpeed;
+        $this->y += $this->ySpeed;
+    }
+    public function getXYSpeed(){
+        $arr = [];
+        array_push($arr,$this->x);
+        array_push($arr,$this->y);
+        return $arr;
     }
 }

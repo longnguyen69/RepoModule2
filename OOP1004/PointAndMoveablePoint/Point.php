@@ -31,4 +31,11 @@ class Point
     {
         return $this->y;
     }
+
+    public function getPoint(){
+        $arr = [];
+        array_push($arr,$this->x);
+        array_push($arr,$this->y);
+        return $arr;
+    }
 }
