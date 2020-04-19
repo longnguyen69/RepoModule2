@@ -9,7 +9,7 @@ $stack = new StackSymmetry();
 $queue = new QueueSymmetry();
 
 if (strlen($str1) != strlen($str2)) {
-    return exit("String no symmetrys");
+    exit("String no symmetry");
 } else {
     for ($i = 0; $i < strlen($str1); $i++) {
         $stack->addStringToStack(substr($str1, $i, 1));
@@ -19,7 +19,7 @@ if (strlen($str1) != strlen($str2)) {
 
 for ($i = 0; $i < strlen($str1); $i++){
     if ($stack->popStack() != $queue->popQueue()) {
-        return exit("String no symmetry");
+        exit("String no symmetry");
     }
 }
-return exit("Say yes");
+exit("Say yes");
