@@ -1,16 +1,40 @@
 <?php
-include "Node.php";
+
 
 class QueueSetup
 {
-    public $front;
-    public $back;
+    protected $arr = [];
+    protected $limit = 10;
+
     public function __construct()
     {
-        $this->front = new Node();
-        $this->back = $back;
-    }
-    public function isEmpty(){
     }
 
+    function enqueue($data)
+    {
+        if (!$this->isFull()){
+            return array_push($this->arr, $data);
+        } else {
+            return exit("The queue is full");
+        }
+    }
+
+    function dequeue()
+    {
+        if (!$this->isEmpty()){
+            return array_shift($this->arr);
+        } else {
+            return exit("Queue empty");
+        }
+    }
+
+    function isEmpty()
+    {
+        return empty($this->arr);
+    }
+
+    function isFull()
+    {
+        return count($this->arr) == $this->limit;
+    }
 }
