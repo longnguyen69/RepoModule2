@@ -1,0 +1,25 @@
+<?php
+include "StackInterface.php";
+include "QueueSymmetry.php";
+include "StackSymmetry.php";
+
+$str1 = "word";
+$str2 = "drow";
+$stack = new StackSymmetry();
+$queue = new QueueSymmetry();
+
+if (strlen($str1) != strlen($str2)) {
+    return exit("String no symmetrys");
+} else {
+    for ($i = 0; $i < strlen($str1); $i++) {
+        $stack->addStringToStack(substr($str1, $i, 1));
+        $queue->addQueue(substr($str2, $i, 1));
+    }
+}
+
+for ($i = 0; $i < strlen($str1); $i++){
+    if ($stack->popStack() != $queue->popQueue()) {
+        return exit("String no symmetry");
+    }
+}
+return exit("Say yes");
