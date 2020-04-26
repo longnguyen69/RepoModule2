@@ -47,44 +47,6 @@ class RegisterAcc
         return file_put_contents($this->filePath, $dataAcc);
     }
 
-    function checkName($name)
-    {
-        $pattern = "/^[A-Za-z]$/";
-        if (preg_match($pattern, $name)) {
-            return $name;
-        } else {
-            echo "The name only consists of letters";
-        }
-    }
 
-    function checkPhone($phone)
-    {
-        $pattern = "/^[0-9]{10}$/";
-        if (preg_match($pattern, $phone)) {
-            return $phone;
-        } else {
-            echo "Phone numbers include only digits";
-        }
-    }
-
-    function checkEmail($email)
-    {
-        $pattern = "/^[A-Za-z0-9]+@[A-Za-z0-9]+(\.[A-Za-z]+)$/";
-        if (preg_match($pattern, $email)) {
-            return $email;
-        } else {
-            echo "Email invalidate";
-        }
-    }
-
-    function checkPassword($password)
-    {
-        $pattern = "/^[A-Za-z0-9]{8,20}$/";
-        if (preg_match($pattern, $password)) {
-            return $password;
-        } else {
-            echo "Password incorrect format";
-        }
-    }
 
 }

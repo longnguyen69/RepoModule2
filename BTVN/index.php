@@ -1,6 +1,5 @@
 <?php
-include "class/Register.php";
-include "class/RegisterAcc.php";
+
 
 
 ?>
