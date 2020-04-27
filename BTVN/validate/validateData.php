@@ -12,7 +12,7 @@ if (isset($_SERVER['REQUEST_METHOD']) == 'POST'){
 
     function checkName($name)
     {
-        $pattern = "/^[A-Za-z]$/";
+        $pattern = "/^[A-Za-z]+$/";
         if (preg_match($pattern, $name)) {
             return true;
         } else {
@@ -50,14 +50,19 @@ if (isset($_SERVER['REQUEST_METHOD']) == 'POST'){
         }
     }
 
-    if (checkName($firstName) && checkName($lastName) && checkPhone($phone) && checkEmail($email) && checkPassword($password)){
+    var_dump(checkName($firstName));
+    var_dump(checkName($lastName));
+    var_dump(checkPhone($phone));
+    var_dump(checkEmail($email));
+    var_dump(checkPassword($password));
+    if (checkName($firstName) == true && checkName($lastName) == true && checkPhone($phone) ==true &&
+        checkEmail($email) ==true && checkPassword($password) == true){
+
         $newAcc = new Register($firstName,$lastName,$phone,$email,$password);
         $managerAcc = new RegisterAcc('../account.json');
         $managerAcc->addAccount($newAcc);
+        echo "Register success";
     } else {
         echo "wrong account format";
     }
-
-
-
 }
